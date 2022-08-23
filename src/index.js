@@ -3,10 +3,14 @@ const path = require('path')
 const morgan = require('morgan')
 const handlebars = require('express-handlebars')
 
+const db = require('./config/db')
 const newRoute = require('./routes/news.js')
 const homeRoute = require('./routes/home.js')
 const app = express()
 const port = 3000
+
+// connect db
+db.connect()
 
 // Use static folder
 app.use(express.static(path.join(__dirname, 'public')))
