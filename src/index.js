@@ -6,6 +6,7 @@ const handlebars = require('express-handlebars')
 const db = require('./config/db')
 const newRoute = require('./routes/news.js')
 const homeRoute = require('./routes/home.js')
+const courseRoute = require('./routes/courses.js')
 const app = express()
 const port = 3000
 
@@ -38,6 +39,7 @@ app.use(express.json())
 
 app.use(homeRoute)
 app.use(newRoute)
+app.use('/courses',courseRoute)
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)
