@@ -9,6 +9,9 @@ const Course = new Schema({
     videoId: { type: String, required: true },
     level: { type: String },
     slug: { type: String, slug: 'name', unique: true },
+},
+{
+    timestamps: true,
 })
 mongoose.plugin(slug);
 module.exports = mongoose.model('Course', Course)
